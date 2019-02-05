@@ -6,20 +6,20 @@
 
 using namespace std;
 
-const int BOARDSIZE = 8;
+const int BSIZE = 8;
 
 void printBoardLine() {
-  for (int i = 0; i < BOARDSIZE; ++i) {
+  for (int i = 0; i < BSIZE; ++i) {
     cout << "____";
   }
   cout << endl;
 }
 
-void printBoard(const int board[BOARDSIZE][BOARDSIZE]) {
+void printBoard(const int board[BSIZE][BSIZE]) {
   cout << "Board:" << endl;
   printBoardLine();
-  for (int i = 0; i < BOARDSIZE; ++i) {
-    for (int j = 0; j < BOARDSIZE; ++j) {
+  for (int i = 0; i < BSIZE; ++i) {
+    for (int j = 0; j < BSIZE; ++j) {
       if (board[i][j] == 0) {
         cout << "  ";
       } else {
@@ -34,24 +34,24 @@ void printBoard(const int board[BOARDSIZE][BOARDSIZE]) {
   }
 }
 
-void resetBoard(int board[BOARDSIZE][BOARDSIZE]) {
-  for (int i = 0; i < BOARDSIZE; ++i) {
-    for (int j = 0; j < BOARDSIZE; ++j) {
+void resetBoard(int board[BSIZE][BSIZE]) {
+  for (int i = 0; i < BSIZE; ++i) {
+    for (int j = 0; j < BSIZE; ++j) {
       board[i][j] = 0;
     }
   }
 }
 
-bool isAvailable(const int board[BOARDSIZE][BOARDSIZE], int row, int col) {
+bool isAvailable(const int board[BSIZE][BSIZE], int row, int col) {
   return row >= 0 && col >= 0 &&
-      row < BOARDSIZE && col < BOARDSIZE && board[row][col] == 0;
+      row < BSIZE && col < BSIZE && board[row][col] == 0;
 }
-void getNextLocation(const int board[BOARDSIZE][BOARDSIZE], int &row, int &col) {
+void getNextLocation(const int board[BSIZE][BSIZE], int &row, int &col) {
   // there are 8 possibilities for the knight
   // we should probably choose a location at random or use a heuristic
   // for now it only goes right and down
-  int horizontal[BOARDSIZE];
-  int vertical[BOARDSIZE];
+  int horizontal[BSIZE];
+  int vertical[BSIZE];
   // 8 possible moves
   horizontal[0] = 2;
   vertical[0] = -1;
@@ -79,7 +79,7 @@ void getNextLocation(const int board[BOARDSIZE][BOARDSIZE], int &row, int &col) 
 }
 
 int knightsTour() {
-  int board[BOARDSIZE][BOARDSIZE];
+  int board[BSIZE][BSIZE];
   resetBoard(board);
   int row = 0;
   int col = 0;
