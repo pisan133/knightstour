@@ -21,29 +21,8 @@ CMD="g++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe"
 echo $CMD
 $CMD
 
-echo "*** cpplint"
-CMD="cpplint *.cpp *.h *.hpp"
-echo $CMD
-$CMD
-
-echo "*** cppcheck"
-# cppcheck in CSS Linux Lab only knows about c++11
-CMD="cppcheck --enable=all --force --inconclusive --language=c++ --std=c++11 --suppress=missingIncludeSystem *.cpp *.h *.hpp"
-echo $CMD
-$CMD
-
 echo "*** running"
 CMD="./myprogram.exe"
-echo $CMD
-$CMD
-
-echo "*** running with valgrind"
-CMD="valgrind ./myprogram.exe"
-echo $CMD
-$CMD
-
-echo "*** cleaning up"
-CMD="rm myprogram.exe"
 echo $CMD
 $CMD
 
