@@ -16,6 +16,8 @@
 
 date
 
+rm ./myprogram.exe > 2
+
 echo "*** Compiling"
 CMD="g++ -std=c++14 -Wall -Wextra -Wno-sign-compare *.cpp -g -o myprogram.exe"
 echo $CMD
